@@ -8,14 +8,14 @@
       <div class="mu-blog-banner-area">
         <h2>Blog</h2>
         <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>          
+          <li><a href="index.html">Home</a></li>
           <li class="active">Blog</li>
         </ol>
       </div>
     </div>
   </section>
-  <!-- End Blog banner -->  
-  
+  <!-- End Blog banner -->
+
   <!-- Start Blog -->
   <section id="mu-blog">
     <div class="container">
@@ -25,13 +25,33 @@
             <div class="row">
               <div class="col-md-8 col-sm-8">
                 <div class="mu-blog-content">
+                  {% for post in posts %}
                   <!-- Start Single blog item -->
+                  <article class="mu-news-single">
+                    <h3><a href="#">{{post.title}}</a></h3>
+                    <figure class="mu-news-img">
+                      <a href="#"><img src="{% static 'blog/img/news/1.jpg' %}" alt="img"></a>
+                    </figure>
+                    <div class="mu-news-single-content">
+                      <ul class="mu-meta-nav">
+                        <li>By: {{post.author}}</li>
+                        <li>Date: {{post.date_posted|date:"F d, Y" }}</li>
+                      </ul>
+                      <p>{{post.content}}</p>
+                      <div class="mu-news-single-bottom">
+                        <a href="#" class="mu-readmore-btn">Read More</a>
+                      </div>
+                    </div>
+                  </article>
+                 <!-- End Single blog item -->
+                 {% endfor %}
+                  <!-- Start Single blog item
                   <article class="mu-news-single">
                     <h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!</a></h3>
                     <figure class="mu-news-img">
-                      <a href="#"><img src="{% static 'blog/img/news/1.jpg' %}" alt="img"></a>                      
+                      <a href="#"><img src="{% static 'blog/img/news/2.jpg' %}" alt="img"></a>
                     </figure>
-                    <div class="mu-news-single-content">                      
+                    <div class="mu-news-single-content">
                       <ul class="mu-meta-nav">
                         <li>By Admin</li>
                         <li>Date: May 10 2016</li>
@@ -40,16 +60,16 @@
                       <div class="mu-news-single-bottom">
                         <a href="#" class="mu-readmore-btn">Read More</a>
                       </div>
-                    </div>                   
+                    </div>
                   </article>
-                  <!-- End Single blog item -->
-                  <!-- Start Single blog item -->
+                  <!-- End Single blog item -->-->
+                  <!-- Start Single blog item
                   <article class="mu-news-single">
                     <h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!</a></h3>
                     <figure class="mu-news-img">
-                      <a href="#"><img src="{% static 'blog/img/news/2.jpg' %}" alt="img"></a>                      
+                      <a href="#"><img src="{% static 'blog/img/news/3.jpg' %}" alt="img"></a>
                     </figure>
-                    <div class="mu-news-single-content">                      
+                    <div class="mu-news-single-content">
                       <ul class="mu-meta-nav">
                         <li>By Admin</li>
                         <li>Date: May 10 2016</li>
@@ -58,27 +78,9 @@
                       <div class="mu-news-single-bottom">
                         <a href="#" class="mu-readmore-btn">Read More</a>
                       </div>
-                    </div>                   
+                    </div>
                   </article>
-                  <!-- End Single blog item -->
-                  <!-- Start Single blog item -->
-                  <article class="mu-news-single">
-                    <h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, distinctio!</a></h3>
-                    <figure class="mu-news-img">
-                      <a href="#"><img src="{% static 'blog/img/news/3.jpg' %}" alt="img"></a>                      
-                    </figure>
-                    <div class="mu-news-single-content">                      
-                      <ul class="mu-meta-nav">
-                        <li>By Admin</li>
-                        <li>Date: May 10 2016</li>
-                      </ul>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio est quaerat magnam exercitationem voluptas, voluptatem sed quam ab laborum voluptatum tempore dolores itaque, molestias vitae.</p>
-                      <div class="mu-news-single-bottom">
-                        <a href="#" class="mu-readmore-btn">Read More</a>
-                      </div>
-                    </div>                   
-                  </article>
-                  <!-- End Single blog item -->
+                  <!-- End Single blog item -->-->
                 </div>
                 <div class="row">
                   <div class="col-md-12">
@@ -107,7 +109,7 @@
                 </div>
               </div>
               <!-- Start Blog Sidebar -->
-              <div class="col-md-4 col-sm-4">             
+              <div class="col-md-4 col-sm-4">
                 <aside class="mu-blog-sidebar">
                   <!-- Blog Sidebar Single -->
                   <div class="mu-blog-sidebar-single">
@@ -145,12 +147,12 @@
                       <a href="#">Dessert</a>
                       <a href="#">Chicken</a>
                       <a href="#">Beef</a>
-                      <a href="#">Mutton</a>                      
+                      <a href="#">Mutton</a>
                     </div>
                   </div>
                   <!-- End Blog Sidebar Single -->
                   <!-- Blog Sidebar Single -->
-                  <div class="mu-blog-sidebar-single">                    
+                  <div class="mu-blog-sidebar-single">
                     <a href="#" class="mu-sidebar-add">
                       <img src="{% static 'blog/img/banner-ads.jpg' %}" alt="img">
                     </a>
@@ -166,25 +168,5 @@
     </div>
   </section>
   <!-- End Blog -->
-  
-  <!-- Footer -->
-  <footer id="mu-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-        <div class="mu-footer-area">
-           <div class="mu-footer-social">
-            <a href="#"><span class="fa fa-facebook"></span></a>
-            <a href="#"><span class="fa fa-twitter"></span></a>
-            <a href="#"><span class="fa fa-google-plus"></span></a>
-            <a href="#"><span class="fa fa-linkedin"></span></a>
-            <a href="#"><span class="fa fa-youtube"></span></a>
-          </div>
-          <div class="mu-footer-copyright">
-            <p>Designed by <a rel="nofollow" href="http://www.markups.io/">MarkUps.io</a></p>
-          </div>         
-        </div>
-      </div>
-      </div>
-    </div>
+
 {% endblock content %}
