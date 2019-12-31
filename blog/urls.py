@@ -1,16 +1,11 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Post
+from django.urls import path
 
-def home(request):
-	return render(request, 'blog/index.html')
+from . import views
+from users import views as users_view
 
-def blog(request):
-	context = {
-	'title': 'Blog',
-	'posts': Post.objects.all()
-	}
-	return render(request, 'blog/blog.html', context)
-
-def contact(request):
-	return render(request, 'blog/contact.html', {'title': 'Contact'})
+urlpatterns = [
+    path('', views.home, name='blog-home'),
+    path('blog/', views.blog, name='blog-blog'),
+    path('contact/', views.contact, name='blog-contact'),
+    path('register/', users_view.register, name='blog-register'),
+]
