@@ -1,0 +1,48 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+  <!-- Start Blog banner  -->
+  <section id="mu-blog-banner">
+    <div class="container">
+      <div class="mu-blog-banner-area">
+        <h2>Hope to see you again!</h2>
+      </div>
+    </div>
+  </section>
+  <!-- End Blog banner -->
+
+  <section id="mu-error">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-error-area">
+            <h1>You have been successfully Logged out.</h1>
+            <p>Logged out by mistake</p>
+            <a href="{% url 'login' %}" class="mu-readmore-btn">Lets Login again</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="mu-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="mu-footer-area">
+           <div class="mu-footer-social">
+            <a href="#"><span class="fa fa-facebook"></span></a>
+            <a href="#"><span class="fa fa-twitter"></span></a>
+            <a href="#"><span class="fa fa-google-plus"></span></a>
+            <a href="#"><span class="fa fa-linkedin"></span></a>
+            <a href="#"><span class="fa fa-youtube"></span></a>
+          </div>
+          <div class="mu-footer-copyright">
+            <p>Designed by <a rel="nofollow" href="http://www.markups.io/">MarkUps.io</a></p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+{% endblock content %}

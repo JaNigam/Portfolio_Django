@@ -1,0 +1,43 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+  <!-- Start Blog banner  -->
+  <section id="mu-blog-banner">
+    <div class="container">
+      <div class="mu-blog-banner-area">
+        <h2>Welcome to Cyber Donjon</h2>
+      </div>
+    </div>
+  </section>
+  <div class="propic">
+    <center>
+    <img align="middle" src="{% static 'blog/img/chef.jpg' %}" alt="">
+    </center>
+  </div>
+  <!-- End banner -->
+
+  <section id="mu-error">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-error-area">
+            <h1>{{ user.username }}</h1>
+            <h1>{{ user.name }}</h1>
+            <p>This is your CD account section</p>
+            <a href="{% url 'logout' %}" class="mu-readmore-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<style media="screen">
+.propic{
+  position: absolute;
+  margin-left: 41%;
+  top: 200px;;
+  }
+</style>
+
+
+{% endblock content %}

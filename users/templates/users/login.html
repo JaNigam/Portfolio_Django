@@ -1,78 +1,28 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div id="login-box" style="margin-top:150px;">
+      <div id="login-box" style="margin-top:150px;">
 
-<!------  Left Side Login  -------->
   <div class="left">
       <form method="POST">
-    <h1>Sign up</h1>
+    <h1>Sign In</h1>
     {% csrf_token %}
-    <table>
-      <tr>
-        <td>
-          <p  style="font-size: 12px;color; red;">
-          {{ form.first_name.errors }}
-          </p>
-          <label for="username">First Name: </label>
-          {{form.first_name}}
-        </td>
-        <td>
-          <p  style="font-size: 12px;color; red;">
-          {{ form.last_name.errors }}
-          </p>
-          <label for="username">Last Name: </label>
-          {{form.last_name }}
-        </td>
-        </tr>
-    </table>
-    <p  style="font-size: 12px;color; red;">
-    {{ form.username.errors }}
-    </p>
-    <label for="username">Username: </label>
-    {{form.username}}
-    <p  style="font-size: 12px;color; red;">
-    {{ form.email.errors }}
-    </p>
-    <label for="email">Email: </label>
-    {{form.email}}
-    <p  style="font-size: 12px;color; red;">
-    {{ form.password1.errors }}
-    </p>
-    <label for="password1">Password: </label>
-    {{form.password1}}
-    <p  style="font-size: 12px;color; red;">
-    {{ form.password2.errors }}
-    </p>
-    <label for="password2">Re-type Password: </label>
-    {{form.password2 }}
 
-    <input type="submit" name="signup_submit" value="Sign me up" />
-    <p class="text-muted" style="padding-top: 5px; font-size: 12px;">Already have an account?<a href="#">Sign In</a></p>
+    {{ form|crispy }}
+    <input type="submit" name="signin_submit" value="Submit" />
+    <p class="text-muted" style="padding-top: 5px; font-size: 12px;">Don't have an account?<a href="{% url 'blog-register' %}">Sign Up</a></p>
     </form>
   </div>
-<!------ Right Side Login ------>
 
-<!-- ****************************************************** -->
-
-<!------ Left side Login --------->
 
   <div class="right">
-    <span class="loginwith">Sign in with<br />social network</span>
-
     <button class="social-signin facebook">Log in with facebook</button>
     <button class="social-signin twitter">Log in with Twitter</button>
     <button class="social-signin google">Log in with Google+</button>
   </div>
-
-<!------ End Left side ---------->
   <div class="or">OR</div>
+
 </div>
-
-
-<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
-<!----------- PAGE STYLING ------------->
-<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
 
 <style media="screen">
   @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
@@ -212,7 +162,8 @@ input[type="submit"]:active {
   top: 0;
   right: 0;
   box-sizing: border-box;
-  padding: 40px;
+  padding-top: 155px;
+  padding-left: 40px;
   width: 300px;
   height: 400px;
   background: url('https://goo.gl/YbktSj');
@@ -266,8 +217,5 @@ button.social-signin.google {
 }
 </style>
 
-<!---- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ---->
-<!-----------END OF PAGE STYLING ------------->
-<!---- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX ---->
 
 {% endblock content %}
