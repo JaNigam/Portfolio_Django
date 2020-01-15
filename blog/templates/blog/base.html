@@ -81,13 +81,24 @@
             <li><a href="#mu-restaurant-menu">WORK</a></li>
             <li><a href="#mu-reservation">ABOUT ME</a></li>
             <li><a href="{% url 'blog-contact' %}">CONTACT</a></li>
+            {% if user.is_authenticated %}
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="blog-archive.html">JOIN DONJON <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="blog-archive.html">{{ user.username }}<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="{% url 'blog-register' %}">Sign UP</a></li>
-                <li><a href="blog-single.html">Log In</a></li>
+                <li><a href="{% url 'profile' %}">Your Profile</a></li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
               </ul>
             </li>
+
+            {% else %}
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="blog-archive.html">ENTER DONJON <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="{% url 'blog-register' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}">Log In</a></li>
+              </ul>
+            </li>
+            {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
