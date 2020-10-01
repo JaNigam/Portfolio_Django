@@ -20,6 +20,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
 
+#with this line you can type your website name below as shown in the comment
+#this will display your website name on django admin header!
+admin.site.site_header = "your website name"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
